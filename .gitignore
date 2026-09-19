@@ -1,0 +1,25 @@
+# ── Secrets ─────────────────────────────────────────────────────────────
+# Never commit these.
+.env
+data/certs/            # dev-cert.pem AND dev-key.pem (a private TLS key)
+
+# ── Large model files (fetched, not stored) ─────────────────────────────
+# The base models are public and re-downloadable — see scripts/fetch_models.sh.
+# GitHub's free Git LFS quota is 1 GB and its per-file cap is 2 GB, so the
+# ~6.9 GB of models here do not belong in the repo. .gitattributes still routes
+# any model file you DO choose to commit through Git LFS.
+models/downloads/
+MOBILE_VERSION/models/            # rebuilt by MOBILE_VERSION/tools/pack_mobile.py
+
+# ── Virtualenv & Python build cruft (regenerable) ───────────────────────
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# ── Runtime state / caches ──────────────────────────────────────────────
+data/sessions/
+*.db
+*.ogg
+const fib*
+.pytest_cache/

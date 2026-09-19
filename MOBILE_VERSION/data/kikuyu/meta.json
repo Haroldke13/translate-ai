@@ -1,0 +1,14 @@
+{
+  "language": "kikuyu",
+  "corpus": true,
+  "source": "data/bible/parallel.jsonl",
+  "verses": 31094,
+  "accented_spellings": 41164,
+  "gloss_entries": 42321,
+  "bytes": {
+    "verses": 3001878,
+    "spelling": 362110,
+    "gloss": 432336
+  },
+  "seconds": 327.5
+}

@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}Translating — Kikuyu to English{% endblock %}
+{% block content %}
+  <p class="hint">{% if job.kind == "text" %}Written text{% else %}{{ job.label }}{% endif %}</p>
+
+  <div id="progress" class="progress" {% if job.state in ("done", "failed") %}hidden{% endif %}>
+    <div class="bar"></div>
+    <p id="progress-text">
+      {% if job.state == "queued" %}Waiting for the model…
+      {% elif job.kind == "text" %}Translating…
+      {% else %}Transcribing and translating…{% endif %}
+      {% if job.kind != "text" %}This can take a few minutes for a long recording.{% endif %}
+    </p>
+  </div>
+
+  <div id="error" class="error" role="alert" {% if job.state != "failed" %}hidden{% endif %}>{{ job.error or "" }}</div>
+
+  <section id="result" {% if job.state != "done" %}hidden{% endif %}>
+    {% set data = job.result or {} %}
+    <article class="card">
+      <h2>{{ data.language_name or language.name }}</h2>
+      <p id="out-kikuyu" class="text">{{ data.source_text or "" }}</p>
+      {% if data.read_as %}
+        <p class="hint">Read as <strong>{{ data.read_as }}</strong> — the tilde vowels were filled in.</p>
+      {% endif %}
+    </article>
+    <article class="card english">
+      <h2>English</h2>
+      <p id="out-english" class="text">{{ data.english or "" }}</p>
+    </article>
+
+    {% if data.bible_match %}
+    <article class="card verse">
+      <h2>Bible verse</h2>
+      <p class="ref">{{ data.bible_match.book }} {{ data.bible_match.chapter }}:{{ data.bible_match.verse }}</p>
+      <p class="text">{{ data.bible_match.english }}</p>
+    </article>
+    {% endif %}
+
+    {% if data.session_id %}
+    <p class="downloads">
+      {% for name in ("subtitles.srt", "english_subtitles.srt") %}
+        {% if name in (data.files or []) %}
+          <a href="{{ url_for('session_file', session_id=data.session_id, filename=name) }}">{{ name }}</a>
+        {% endif %}
+      {% endfor %}
+    </p>
+    {% endif %}
+
+    <details class="card">
+      <summary>Improve this translation</summary>
+      <p class="hint">Saved as training data for the next model.</p>
+      {% if request.args.get("saved") %}<p class="hint">Saved.</p>{% endif %}
+      <form method="post" action="{{ url_for('corrections') }}">
+        <input type="hidden" name="job_id" value="{{ job_id }}">
+        <input type="hidden" name="source" value="{{ data.source_text or '' }}">
+        <input type="hidden" name="machine" value="{{ data.english or '' }}">
+        <label class="field">
+          <span>Correct English</span>
+          <textarea name="corrected" rows="3">{{ data.english or "" }}</textarea>
+        </label>
+        <button class="primary" type="submit">Save correction</button>
+      </form>
+    </details>
+  </section>
+
+  <p class="downloads"><a href="{{ url_for('index') }}">Translate something else</a></p>
+{% endblock %}
+
+{% block scripts %}
+{% if job.state in ("queued", "working") %}
+<script>
+  // Poll rather than reloading, so the page does not flicker while working.
+  const jobId = {{ job_id | tojson }};
+  const poll = async () => {
+    try {
+      const response = await fetch(`{{ url_for('status', job_id='') }}${jobId}`, { cache: "no-store" });
+      if (!response.ok) throw new Error("lost the job");
+      const job = await response.json();
+      if (job.state === "done" || job.state === "failed") {
+        location.reload();
+        return;
+      }
+      if (job.state === "working") {
+        document.getElementById("progress-text").textContent =
+          "Transcribing and translating… This can take a few minutes for a long recording.";
+      }
+    } catch (error) {
+      document.getElementById("progress-text").textContent = "Lost contact with the server.";
+      return;
+    }
+    setTimeout(poll, 2000);
+  };
+  setTimeout(poll, 1500);
+</script>
+{% endif %}
+{% endblock %}

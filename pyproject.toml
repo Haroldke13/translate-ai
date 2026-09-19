@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kikuyu-ai"
+version = "0.1.0"
+description = "Offline-first Kikuyu to English speech translation pipeline"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+web = ["fastapi>=0.110", "uvicorn>=0.29", "python-multipart>=0.0.9"]
+ml = ["transformers>=4.40", "torch", "sentencepiece", "accelerate", "soundfile", "numpy"]
+ct2 = ["faster-whisper"]
+training = ["transformers>=4.40", "torch", "sentencepiece", "accelerate"]
+pdf = ["pypdf>=4"]
+flask = ["flask>=3"]
+exports = ["python-docx", "reportlab"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+kikuyu-translate = "kikuyu_ai.cli:main"
+kikuyu-api = "kikuyu_ai.web.api:run"
+
+[tool.setuptools.package-data]
+"kikuyu_ai.web" = ["static/*", "static/icons/*", "templates/*"]
+
+[tool.setuptools.packages.find]
+include = ["kikuyu_ai*"]

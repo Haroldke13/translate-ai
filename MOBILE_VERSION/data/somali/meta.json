@@ -1,0 +1,14 @@
+{
+  "language": "somali",
+  "corpus": true,
+  "source": "data/bible/somali/parallel.jsonl",
+  "verses": 31095,
+  "accented_spellings": 0,
+  "gloss_entries": 33687,
+  "bytes": {
+    "verses": 2988682,
+    "spelling": 74,
+    "gloss": 362582
+  },
+  "seconds": 340.8
+}

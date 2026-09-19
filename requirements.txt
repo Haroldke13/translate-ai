@@ -1,0 +1,19 @@
+# Core install has no mandatory third-party runtime dependencies.
+# Optional HTTP API dependencies, disabled by default on Termux because
+# FastAPI pulls pydantic-core, which currently builds from source on Android.
+# Install explicitly with: pip install -e '.[web]'
+#
+# fastapi>=0.110
+# uvicorn>=0.29
+# python-multipart>=0.0.9
+# Optional offline inference:
+# transformers>=4.40
+# torch
+# sentencepiece
+# accelerate
+# soundfile
+# numpy
+# Optional CTranslate2/faster-whisper backend:
+# faster-whisper
+# python-docx
+# reportlab

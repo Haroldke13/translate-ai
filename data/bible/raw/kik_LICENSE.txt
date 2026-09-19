@@ -1,0 +1,48 @@
+About kik_vpl 
+ 
+ This archive contains BIBLE TEXT ONLY. All formatting, paragraph breaks, notes, introductions, noncanonical section titles, etc., have been removed. The file ending "_vpl.txt" is designed for import into BibleWorks and similar Bible study programs. The file ending "_vpl.xml" contains the same information, but is in XML format and uses standard SIL/UBS book abbreviations.
+The file ending "_vpl.sql" contains the same information formatted to create a SQL data table. 
+ Check for updates and other Bible translations in this format at http:\\eBible.org\Scriptures\ 
+ 
+ Biblica® Kiugo Gĩtheru Kĩa Ngai Kĩhingũre 
+ Gikuyu: Biblica® Kiugo Gĩtheru Kĩa Ngai Kĩhingũre (Bible) of Kenya 
+ copyright © 2013 Biblica, Inc. 
+Language: Kikuyu (Gikuyu) 
+Contributor: Biblica, Inc. 
+ 
+
+ Wĩra ũyũ ũheanĩtwo na ũndũ wa rũtha rwa biacara rwa Creative Commons Attribution-ShareAlike 4‪.0 International License (CC BY-SA). Ũngĩenda kuona kobĩ ya rũtha rũrũ rwa biacara, rora rũrenda-inĩ rwa: http://creativecommons.org/licenses/by-sa/4‪.0, kana ũtũme marũa kũrĩ: Creative Commons, PO Box 1866, Mountain View, CA 94042, USA. 
+ Biblica® nĩ mũhũri wa biacara wandĩkithĩtio nĩ Biblica, Inc., kũhũthĩra mũhũri wa biacara wa Biblica® kũbataraga marũa ma gwĩtĩkĩrio kuuma kũrĩ Biblica, Inc. Kuumana na rũtha rwa biacara rwa CC BY-SA, no ũkobie kana ũtambie wĩra ũyũ ũtarĩ mũgarũre, ĩndĩ ndũkagarũre rũri rwa biacara rwa Biblica®. Ũngĩgarũra kana ũkobie wĩra ũyũ, na tondũ wa ũguo ũtuĩke nĩ wĩra mwerũ uumanĩte na ũcio-rĩ, no nginya weheria mũhũri wa biacara wa Biblica®. Wĩra-inĩ ũcio mwerũ no nginya wonanie nĩ maũndũ marĩkũ ũgarũrĩte, na ũtarĩrie wĩra-inĩ ũcio ta ũũ: “Wĩra wa kĩhumo warĩ wa Biblica, Inc. na ũheanĩtwo tũhũ ng’enda-inĩ cia www.biblica.com na open.bible.” 
+ Kĩmenyitha kia Mwene-wĩra no nginya kĩandĩkwo iratathi rĩa kĩongo kĩa wĩra kana rĩa ũhoro wa Mwene-wĩra ta ũũ: 
+ Biblica® Kiugo Gĩtheru Kĩa Ngai Kĩhingũre™ 
+ Kĩmenyithia kĩa Mwene-wĩra © 2013 nĩ Biblica, Inc. 
+ Biblica® Open Kikuyu Holy Word of God™ 
+ Copyright © 2013 by Biblica, Inc. 
+ “Biblica” nĩ mũhũri wa biacara wandĩkithĩtio wabici-inĩ ya United States Patent and Trademark Office nĩ Biblica, Inc. Ũhũthĩrĩtwo na rũtha. 
+ “Biblica” is a trademark registered in the United States Patent and Trademark Office by Biblica, Inc. Used with permission.  
+ No nginya wĩtĩkĩrie wĩra ũcio mwerũ ũgarũrĩte ũheanwo na ũndũ wa rũtha rwa biacara rũu rwa CC BY-SA. 
+ Ũngĩenda kũmenyithia Biblica, Inc. ũhoro wĩgiĩ ũtaũri waku wa wĩra ũyũ-rĩ, twandĩkĩre rũrenda-inĩ rwa: https://open.bible/contact-us. 
+ This work is made available under the Creative Commons Attribution-ShareAlike 4‪.0 International License (CC BY-SA). To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4‪.0 or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA. 
+ Biblica® is a trademark registered by Biblica, Inc., and use of the Biblica® trademark requires the written permission of Biblica, Inc. Under the terms of the CC BY-SA license, you may copy and redistribute this unmodified work as long as you keep the Biblica® trademark intact. If you modify a copy or translate this work, thereby creating a derivative work, you must remove the Biblica® trademark. On the derivative work, you must indicate what changes you have made and attribute the work as follows: “The original work by Biblica, Inc. is available for free at www.biblica.com and open.bible.” 
+ Notice of copyright must appear on the title or copyright page of the work as follows: 
+ Biblica® Kiugo Gĩtheru Kĩa Ngai Kĩhingũre™ 
+ Kĩmenyithia kĩa Mwene-wĩra © 2013 nĩ Biblica, Inc. 
+ Biblica® Open Kikuyu Holy Word of God™ 
+ Copyright © 2013 by Biblica, Inc. 
+ “Biblica” nĩ mũhũri wa biacara wandĩkithĩtio wabici-inĩ ya United States Patent and Trademark Office nĩ Biblica, Inc. Ũhũthĩrĩtwo na rũtha. 
+ “Biblica” is a trademark registered in the United States Patent and Trademark Office by Biblica, Inc. Used with permission.  
+ You must also make your derivative work available under the same license (CC BY-SA). 
+ ‪If you would like to notify Biblica, Inc. regarding your translation of this work, please contact us at https://open.bible/contact-us.  
+ 
+ This translation is made available to you under the terms of the
+ Creative Commons Attribution Share-Alike license 4.0. 
+ You have permission to share and redistribute this Bible translation in any format and to make reasonable revisions and adaptations of this translation, provided that: 
+ 
+ You include the above copyright and source information. 
+ If you make any changes to the text, you must indicate that you did so in a way that makes it clear that the original licensor is not necessarily endorsing your changes. 
+ If you redistribute this text, you must distribute your contributions under the same license as the original. 
+ 
+ Pictures included with Scriptures and other documents on this site are licensed just for use with those Scriptures and documents.
+For other uses, please contact the respective copyright owners. 
+ Note that in addition to the rules above, revising and adapting God's Word involves a great responsibility to be true to God's Word. See Revelation 22:18-19. 
+ 2025-05-07

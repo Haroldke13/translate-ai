@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+  {% if error %}<div class="error" role="alert">{{ error }}</div>{% endif %}
+
+  {% if speech_ok %}
+  <form method="post" action="{{ url_for('translate') }}" enctype="multipart/form-data">
+    <input type="hidden" name="lang" value="{{ language.code }}">
+    <section>
+      <h2 class="section-heading">Translate a recording</h2>
+      <!-- No accept filter: phone file managers often report recordings as
+           application/octet-stream, which would hide them from the picker. -->
+      <label class="filebtn" for="audio">
+        <span aria-hidden="true">&#127908;</span> Choose a Kikuyu recording
+      </label>
+      <input id="audio" name="audio" type="file" required hidden>
+      <p id="chosen" class="filename"></p>
+      <button class="primary" type="submit">Translate recording</button>
+      <p class="hint">
+        Any format works: mp3, m4a, ogg, opus, wav, flac, amr, wma, or a video file.
+        WhatsApp voice notes work as they are. Up to {{ max_mb }} MB.
+      </p>
+    </section>
+  </form>
+  {% else %}
+  <div class="note">
+    <strong>Recordings are not available for {{ language.name }}.</strong>
+    {{ speech_error }}
+  </div>
+  {% endif %}
+
+  <form method="post" action="{{ url_for('translate_text') }}">
+    <input type="hidden" name="lang" value="{{ language.code }}">
+    <section>
+      <h2 class="section-heading">Translate written {{ language.name }}</h2>
+      <label class="field" for="text">
+        <span class="visually-hidden">{{ language.name }} text</span>
+        <textarea id="text" name="text" rows="5" required
+                  placeholder="{{ language.placeholder }}">{{ text or "" }}</textarea>
+      </label>
+      <button class="primary" type="submit">Translate text</button>
+      <p class="hint">
+        Type or paste {{ language.name }} and read the English back. A Bible verse is
+        returned as published rather than machine translated.
+      </p>
+    </section>
+  </form>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const input = document.getElementById("audio");
+  if (input) {
+  input.addEventListener("change", () => {
+    const file = input.files[0];
+    document.getElementById("chosen").textContent = file
+      ? `${file.name} (${(file.size / 1048576).toFixed(1)} MB)`
+      : "";
+  });
+  }
+</script>
+{% endblock %}

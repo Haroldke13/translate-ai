@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Translate">
+<title>Kikuyu · Kamba · Oromo · Somali → English</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1><span id="lang-name">Kikuyu</span> <span aria-hidden="true">&rarr;</span> English</h1>
+  <nav class="langs" id="langs" aria-label="Language"></nav>
+  <div id="status" class="status" role="status" aria-live="polite">
+    <span class="dot" aria-hidden="true"></span><span id="status-text">Starting…</span>
+  </div>
+</header>
+
+<main>
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="tab-type" aria-controls="panel-type" aria-selected="true" type="button">Type</button>
+    <button role="tab" id="tab-speak" aria-controls="panel-speak" aria-selected="false" type="button">Record</button>
+  </nav>
+
+  <section id="panel-type" role="tabpanel" aria-labelledby="tab-type">
+    <label class="field">
+      <span class="visually-hidden">Text to translate</span>
+      <textarea id="text-input" rows="4" enterkeyhint="go" placeholder="Andĩka haha…"></textarea>
+    </label>
+    <button id="send-text" class="primary" type="button">Translate</button>
+    <p class="hint">Accents are filled in for you — type <code>ruciu</code> and it reads it as <code>rũciũ</code>.</p>
+  </section>
+
+  <section id="panel-speak" role="tabpanel" aria-labelledby="tab-speak" hidden>
+    <div id="speech-off" class="note" hidden></div>
+
+    <div id="record-area" hidden>
+      <button id="record" class="record" type="button">
+        <span class="mic" aria-hidden="true"></span>
+        <span id="record-label">Tap to record</span>
+      </button>
+      <p id="timer" class="timer" aria-live="polite"></p>
+    </div>
+
+    <label class="filebtn" for="file">
+      <span aria-hidden="true">🎙️</span> Choose a recording
+    </label>
+    <!-- No accept filter: Android file managers report recordings as
+         application/octet-stream, which would hide them from the picker. -->
+    <input id="file" type="file" hidden>
+    <p id="filename" class="filename"></p>
+    <button id="send-file" class="primary" type="button" disabled>Translate recording</button>
+  </section>
+
+  <div id="progress" class="progress" hidden>
+    <div class="bar"></div>
+    <p id="progress-text">Working…</p>
+  </div>
+
+  <div id="error" class="error" role="alert" hidden></div>
+
+  <section id="result" hidden>
+    <article class="card">
+      <h2 id="source-heading">Kikuyu</h2>
+      <p id="out-source" class="text"></p>
+      <p id="read-as" class="hint" hidden></p>
+    </article>
+
+    <div id="warning" class="warning" role="alert" hidden></div>
+
+    <article class="card english">
+      <div class="cardhead">
+        <h2>English</h2>
+        <span id="engine-badge" class="badge"></span>
+      </div>
+      <p id="out-english" class="text"></p>
+      <p id="engine-note" class="hint" hidden></p>
+      <div class="row">
+        <button id="copy" class="ghost" type="button">Copy</button>
+      </div>
+    </article>
+
+    <article id="verse" class="card verse" hidden>
+      <h2>Bible verse</h2>
+      <p id="verse-ref" class="ref"></p>
+      <p id="verse-english" class="text"></p>
+    </article>
+
+    <article id="near" class="card near" hidden>
+      <h2>Closest verse</h2>
+      <p class="hint">Not treated as the answer — shown in case it is what you meant.</p>
+      <p id="near-ref" class="ref"></p>
+      <p id="near-english" class="text"></p>
+    </article>
+
+    <details class="card">
+      <summary>Improve this translation</summary>
+      <p class="hint">Saved on this phone as training data for the next model.</p>
+      <label class="field">
+        <span>Correct English</span>
+        <textarea id="fix-text" rows="3"></textarea>
+      </label>
+      <button id="save-fix" class="primary" type="button">Save correction</button>
+      <p id="fix-status" class="hint" aria-live="polite"></p>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <p class="hint">Runs entirely on this phone. No internet, no API keys, no computer.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

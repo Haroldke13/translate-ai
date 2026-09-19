@@ -1,0 +1,14 @@
+{
+  "language": "oromo",
+  "corpus": true,
+  "source": "data/bible/oromo/parallel.jsonl",
+  "verses": 31094,
+  "accented_spellings": 0,
+  "gloss_entries": 29951,
+  "bytes": {
+    "verses": 2914114,
+    "spelling": 73,
+    "gloss": 312924
+  },
+  "seconds": 291.4
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<title>{% block title %}Kikuyu to English{% endblock %}</title>
+<link rel="icon" href="{{ url_for('static', filename='icons/icon-192.png') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<header>
+  <h1>{{ language.name }} <span>&rarr;</span> English</h1>
+  <nav class="tabs" aria-label="Source language">
+    {% for item in languages %}
+      <a href="{{ url_for('index', lang=item.code) }}"
+         aria-current="{{ 'page' if item.code == language.code else 'false' }}">{{ item.name }}</a>
+    {% endfor %}
+  </nav>
+  <div class="status {% block statuskind %}ok{% endblock %}">
+    <span class="dot" aria-hidden="true"></span>
+    <span>{% if remote %}Using the server at {{ remote }}{% else %}Running offline on this machine{% endif %}</span>
+  </div>
+</header>
+<main>
+{% block content %}{% endblock %}
+</main>
+<footer>
+  <p class="hint">Upload a recording in any format. No API keys, no cloud.</p>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>
